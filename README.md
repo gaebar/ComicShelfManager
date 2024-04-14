@@ -1,4 +1,4 @@
-# Comic Shelf Manager - Paired Programming Project
+# WIP: Comic Shelf Manager - Paired Programming Project
 
 ## Overview
 
