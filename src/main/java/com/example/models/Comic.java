@@ -26,10 +26,11 @@ public class Comic {
     public Comic() {
     }
 
-    public Comic(String title, LocalDate releaseDate, String author) {
+    public Comic(String title, LocalDate releaseDate, String author, User user) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.author = author;
+        this.user = user;
     }
 
     public Integer getComicId() {
