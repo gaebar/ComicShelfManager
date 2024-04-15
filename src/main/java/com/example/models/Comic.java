@@ -20,7 +20,7 @@ public class Comic {
     private String author;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Comic() {
