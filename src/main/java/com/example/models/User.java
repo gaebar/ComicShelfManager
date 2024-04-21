@@ -5,13 +5,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
-@Entity //This makes a class a DB table
-@Table(name = "users") //This lets us name our DB table
-@Component //Makes a class a bean (stereotype annotation)
+@Entity // This makes a class a DB table
+@Table(name = "users") // This lets us name our DB table
+@Component // Commented out: Generally, entities are not managed as Spring beans unless specifically required for aspects like AOP.
 public class User {
 
-    @Id //This makes the field the PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //This makes the PK auto-increment
+    @Id // This makes the field the Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // This makes the PK auto-increment
     private int userId;
 
     //@Column isn't necessary UNLESS we need to specify constraints
@@ -21,26 +21,22 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Comic> comics;
 
+    // Boilerplate code-------------------------
 
-    //boilerplate code-------------------------
-
-    //no args constructor
-    public User(Set<Comic> comics) {
-        this.comics = comics;
+    public User() { // No-args constructor
     }
 
-    //all args constructor
     public User(String username, int userId, Set<Comic> comics) {
         this.username = username;
-        this.userId = userId;
+        this.userId = userId; // Including userId in all-args constructor might lead to issues with ID conflicts
         this.comics = comics;
     }
 
-    public User() {
-
+    public User(Set<Comic> comics) { // Constructor without userId
+        this.comics = comics;
     }
 
-    //getters and setters
+    // Getters and Setters
     public int getUserId() {
         return userId;
     }
@@ -57,7 +53,7 @@ public class User {
         this.username = username;
     }
 
-    //toString
+    // toString() method for debugging
     @Override
     public String toString() {
         return "User{" +

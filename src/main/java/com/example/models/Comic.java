@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Entity // This tells Hibernate to make a table out of this class
 @Table(name = "comics")
-@Component
+@Component // Commented out: Generally, entities are managed by JPA/Hibernate and do not need to be declared as Spring beans unless there is a specific requirement (e.g., using Spring AOP on entity classes).
 public class Comic {
 
     @Id
@@ -23,9 +23,13 @@ public class Comic {
     @JoinColumn(name = "user_id")
     private User user;
 
+    //Boilerplate code-----------------------------------
+
+    //no args constructor
     public Comic() {
     }
 
+    //all args constructor
     public Comic(String title, LocalDate releaseDate, String author, User user) {
         this.title = title;
         this.releaseDate = releaseDate;
@@ -33,6 +37,7 @@ public class Comic {
         this.user = user;
     }
 
+    //getters and setters
     public Integer getComicId() {
         return comicId;
     }
@@ -65,6 +70,7 @@ public class Comic {
         this.author = author;
     }
 
+    //toString
     @Override
     public String toString() {
         return "Comic{" +

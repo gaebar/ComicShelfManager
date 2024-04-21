@@ -5,8 +5,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * UserDAO interface extends JpaRepository for CRUD operations and custom queries
- * pertaining to 'User' entities.
+  UserDAO interface extends JpaRepository for CRUD operations and custom queries
+  pertaining to 'User' entities.
+
+  By extending JpaRepository, we get access to various DAO methods that we don't need to write
+
+  JpaRepository takes two generics:
+    -The Java Model AND Database table that we're working with
+    -The data type of the primary key of that table
  */
 @Repository
 public interface UserDAO extends JpaRepository<User, Integer> {
