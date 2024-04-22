@@ -25,8 +25,9 @@ This project was developed using a combination of high-level tools and technolog
 
 - **Spring Boot**: Used for creating the framework of our RESTful services. It served as the backbone for the backend development, providing a comprehensive environment for building scalable web applications.
 - **Java Persistence API (JPA)**: Utilized for database interaction and object-relational mapping, allowing us to manage our PostgreSQL database efficiently and integrate seamlessly with our backend application.
+- **PostgreSQL**: The primary database management system used for this project. PostgreSQL provided a reliable and powerful database platform for storing and retrieving our data efficiently, which was crucial for supporting the application's data persistence needs.
+- **DBeaver**: Served as the database management tool for our PostgreSQL database, helping us handle database schema visualization and manipulation. DBeaver was instrumental in managing and setting up the database structures required for the project, offering an intuitive interface for database administration.
 - **Postman**: Employed for testing and interacting with the REST API. This tool was crucial in ensuring all functionalities performed as expected and allowed us to verify the end-to-end functionality of our services.
-- **DBeaver**: Served as the database management tool, helping us handle database schema visualization and manipulation. DBeaver was instrumental in managing and setting up the database structures required for the project.
 
 Each tool played a critical role in the development process, from backend programming and database management to testing and API interaction, ensuring that the project was well-supported through its various development stages.
 
