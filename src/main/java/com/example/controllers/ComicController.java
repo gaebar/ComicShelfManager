@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 
@@ -24,8 +22,8 @@ public class ComicController {
     private UserDAO userDAO;
 
     @Autowired
-    public ComicController(ComicDAO gameDAO, UserDAO userDAO) {
-        this.comicDAO = gameDAO;
+    public ComicController(ComicDAO comicDAO, UserDAO userDAO) {
+        this.comicDAO = comicDAO;
         this.userDAO = userDAO;
     }
 
@@ -68,35 +66,8 @@ public class ComicController {
         return ResponseEntity.status(201).body(c);
     }
 
-//    // this method will take an entire comic object and replace an existing comic with it
-//    @PutMapping("/{userId}")
-//    public ResponseEntity<Comic> updateComic(@RequestBody Comic comic, @PathVariable int userId){
-//
-//        User u = userDAO.findById(userId).get();
-//
-//        comic.setUser(u);
-//
-//        Comic c = comicDAO.save(comic);
-//
-//        return ResponseEntity.ok(c);
-//
-//    }
 
-
-//    // Updates an existing comic
-//    @PutMapping("/{comicId}")
-//    public ResponseEntity<Comic> updateComic(@RequestBody Comic comicDetails, @PathVariable int comicId){
-//
-//        return comicDAO.findById(comicId).map(comic -> {
-//            comic.setTitle(comicDetails.getTitle());
-//            comic.setReleaseDate(comicDetails.getReleaseDate());
-//            comic.setAuthor(comicDetails.getAuthor());
-//            // ... set other fields as needed ...
-//            Comic updatedComic = comicDAO.save(comic);
-//            return ResponseEntity.ok(updatedComic);
-//        }).orElse(ResponseEntity.notFound().build());
-//    }
-
+    // Updates an existing comic
     @PutMapping("/{comicId}")
     public ResponseEntity<Object> updateComic(@RequestBody Comic comicDetails, @PathVariable int comicId) {
         Optional<Comic> existingComic = comicDAO.findById(comicId);
@@ -109,16 +80,15 @@ public class ComicController {
             comic.setReleaseDate(comicDetails.getReleaseDate()); // Update release date
             comic.setAuthor(comicDetails.getAuthor()); // Update author
             Comic updatedComic = comicDAO.save(comic);
-            return ResponseEntity.ok("Comic updated successfully.");
+            return ResponseEntity.ok("Comic with ID " + updatedComic.getComicId() + " updated successfully.");
         }
     }
-
 
 
     @DeleteMapping("/{comicId}")
     public ResponseEntity<Object> deleteComic(@PathVariable int comicId){
 
-        //first we'll get the game by ID to see if it exists
+        //first we'll get the comic by ID to see if it exists
         //error message if not!!
         Optional<Comic> g = comicDAO.findById(comicId);
 
