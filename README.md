@@ -11,6 +11,15 @@ For this project, I chose to focus on collectible items, specifically comics, be
 
 The main goal of the project is to implement a simple yet functional application that demonstrates our grasp of the fundamental concepts of Spring Boot and Java Persistence API (JPA). It involves creating two related database tables and developing the necessary CRUD (Create, Read, Update, Delete) operations.
 
+## Development Tools Visuals
+
+The ER diagram visualizes the database schema used within the application, and the Postman collection demonstrates the various API endpoints available for testing.
+
+<p float="left">
+  <img src="images/ER_diagram.png" width="400" style="margin-right: 10px;" />
+  <img src="images/postman_collection.png" width="400" /> 
+</p>
+
 ## Features
 
 - RESTful service creation using Spring Boot.
