@@ -20,7 +20,7 @@ public interface ComicDAO extends JpaRepository<Comic, Integer> {
      * @param userId the ID of the user whose comics are to be retrieved
      * @return a list of Comic entities, empty if no comics found
      */
-    List<Comic> findByUserId(int userId);
+    List<Comic> findByUserUserId(int userId);
 
     /**
      * Custom JPQL query to find comics by their title or author.

@@ -1,6 +1,7 @@
 -- Insert user data
 -- Here we add a user which will be associated with the comic book entries.
-INSERT INTO users (username) VALUES ('gaebar');
+-- WARNING: In a real application, ensure that this password is hashed!
+INSERT INTO users (username, password) VALUES ('gaebar', 'testPassword');
 
 -- Insert comic book data
 -- These entries are linked to the user inserted above (assuming the first user gets an ID of 1).

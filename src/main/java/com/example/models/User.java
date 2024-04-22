@@ -18,6 +18,9 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
+    @Column(nullable = false)
+    private String password;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Comic> comics;
 
@@ -26,9 +29,10 @@ public class User {
     public User() { // No-args constructor
     }
 
-    public User(String username, int userId, Set<Comic> comics) {
+    public User(String username, int userId, String password, Set<Comic> comics) {
         this.username = username;
         this.userId = userId; // Including userId in all-args constructor might lead to issues with ID conflicts
+        this.password = password;
         this.comics = comics;
     }
 
@@ -53,12 +57,21 @@ public class User {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     // toString() method for debugging
     @Override
     public String toString() {
         return "User{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
